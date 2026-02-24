@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main application component with tabbed interface for three thumbnail creation methods (prompt, upload, video), thumbnail gallery, and editor panel with hero section and footer.",
+  "frontend/src/components/PromptInput.tsx": "Component for generating thumbnails from text prompts with textarea input, generate button, loading state, and preview display.",
+  "frontend/src/components/ImageUpload.tsx": "Component for uploading images with drag-and-drop area, file validation, upload progress tracking, and automatic enhancement via backend.",
+  "frontend/src/components/VideoLinkInput.tsx": "Component for generating thumbnails from video URLs with URL validation for supported platforms and multiple thumbnail display.",
+  "frontend/src/components/ThumbnailEditor.tsx": "Editor component with sliders for brightness/contrast/saturation adjustments, text overlay options, apply/reset buttons, and download functionality.",
+  "frontend/src/components/ThumbnailGallery.tsx": "Gallery component displaying generated thumbnails in a scrollable grid with click-to-select functionality and empty state.",
+  "frontend/src/components/FeatureIcons.tsx": "Component displaying three feature cards with icons for AI generation, smart enhancement, and video analysis capabilities.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including thumbnail generation, enhancement, video processing, and customization with automatic cache invalidation.",
+  "frontend/src/index.css": "Global styles with vibrant OKLCH color system featuring purple/blue gradients for light and dark modes optimized for creative visual media application.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color tokens, Inter font family, custom shadows including glow effects, and extended utilities for the creative theme.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient, InternetIdentityProvider, and Sonner toast notifications setup."
+}

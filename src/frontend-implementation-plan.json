@@ -1,0 +1,136 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AI Thumbnail Creator with Generation, Enhancement, and Video Link Features",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a text input interface where users can enter a text prompt to generate a thumbnail image using AI",
+      "acceptanceCriteria": [
+        "User can enter a text prompt in a text input field",
+        "A 'Generate' button triggers thumbnail creation",
+        "Loading state is shown while generation is in progress",
+        "Generated thumbnail is displayed once ready"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PromptInput.tsx",
+          "operation": "create",
+          "description": "Create a component with a text input field for entering thumbnail generation prompts, a Generate button, loading state handling, and display area for the generated thumbnail. Call backend.generateThumbnailFromText(prompt) and display the returned ExternalBlob using getDirectURL() in an img tag."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the PromptInput component in the main application layout to make the text prompt generation feature accessible to users."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create an upload interface where users can upload their own thumbnail images for enhancement",
+      "acceptanceCriteria": [
+        "File upload component accepts image files (PNG, JPG, JPEG)",
+        "Preview of uploaded image is shown before enhancement",
+        "Upload progress indicator is displayed",
+        "Clear error messages for invalid file types or sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ImageUpload.tsx",
+          "operation": "create",
+          "description": "Create a file upload component with file input accepting image/png, image/jpeg, image/jpg. Show preview of uploaded image using FileReader or object URL. Display upload progress using ExternalBlob.withUploadProgress(). Include validation for file types and size with clear error messages. Use blob-storage component to handle file uploads: create ExternalBlob.fromBytes() for the uploaded file. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the ImageUpload component in the main application layout to allow users to upload images for enhancement."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create an input interface where users can paste a video link to generate a similar thumbnail",
+      "acceptanceCriteria": [
+        "Text input field accepts video URLs",
+        "Validation for supported video platforms",
+        "Button to trigger thumbnail generation from video link",
+        "Loading state while processing video link"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/VideoLinkInput.tsx",
+          "operation": "create",
+          "description": "Create a component with a text input for video URLs, URL validation logic for supported video platforms, a Generate button to trigger backend.generateThumbnailsFromVideo(url), loading state handling, and display area for the generated thumbnail array. Use getDirectURL() to display the ExternalBlob thumbnails."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the VideoLinkInput component in the main application layout to enable video link to thumbnail generation feature."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create an editor interface with customization options where users can modify generated thumbnails according to their preferences",
+      "acceptanceCriteria": [
+        "Users can adjust colors, contrast, brightness, or other visual properties",
+        "Text overlay options are available if applicable",
+        "Preview updates in real-time as changes are made",
+        "Save or download the customized thumbnail"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ThumbnailEditor.tsx",
+          "operation": "create",
+          "description": "Create an editor component that accepts an ExternalBlob thumbnail as input. Provide UI controls for adjusting brightness, contrast, colors, and text overlays. Serialize customization parameters into a JSON string and call backend.applyCustomizationsToThumbnail(thumbnail, customizationsJSON) to apply changes. Display the returned ExternalBlob using getDirectURL(). Include download functionality using a link element with the direct URL."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and conditionally render the ThumbnailEditor component when a thumbnail has been generated or uploaded, passing the ExternalBlob as a prop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Design a modern, creative visual theme with bold, vibrant colors and clean typography that emphasizes creativity and visual media, consistently applied across all pages and components",
+      "acceptanceCriteria": [
+        "A cohesive color palette is chosen and used throughout the app",
+        "Typography is clear and supports a creative, professional aesthetic",
+        "Layout and spacing are optimized for showcasing visual content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define a vibrant, creative color palette with bold primary and accent colors suitable for a visual media application. Set clean, modern typography using sans-serif fonts. Apply consistent spacing and layout rules optimized for showcasing thumbnails and visual content. Integrate the hero section background image using the generated hero-bg.dim_1920x1080.png from frontend/public/assets/generated/hero-bg.dim_1920x1080.png as a background for prominent sections."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with custom colors matching the vibrant, creative palette. Configure typography settings for clean, professional fonts. Add custom spacing and layout utilities to optimize presentation of visual content and thumbnails."
+        },
+        {
+          "path": "frontend/src/components/FeatureIcons.tsx",
+          "operation": "create",
+          "description": "Create a component that displays feature icons for the three main features: text prompt generation (using frontend/public/assets/generated/icon-prompt.dim_128x128.png), upload enhancement (using frontend/public/assets/generated/icon-upload.dim_128x128.png), and video link conversion (using frontend/public/assets/generated/icon-video-link.dim_128x128.png). Use these icons to visually represent each feature in the UI."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the FeatureIcons component to display the three feature icons prominently in the application layout. Ensure the overall layout uses the creative theme and showcases thumbnails effectively."
+        },
+        {
+          "path": "frontend/src/components/ThumbnailGallery.tsx",
+          "operation": "create",
+          "description": "Create a gallery component to display generated and enhanced thumbnails in a grid layout. Use the placeholder-thumbnail.dim_400x300.png from frontend/public/assets/generated/placeholder-thumbnail.dim_400x300.png as a loading placeholder or empty state. Display ExternalBlob thumbnails using getDirectURL() for efficient rendering."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the ThumbnailGallery component to showcase user-generated thumbnails in a visually appealing grid layout."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "kind": "build_request",
+  "title": "AI Thumbnail Creator with Generation, Enhancement, and Video Link Features",
+  "projectName": "Thumbnail Studio",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a text input interface where users can enter a text prompt to generate a thumbnail image using AI",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "ai se thumbnail create kar sake prompt deke"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can enter a text prompt in a text input field",
+        "A 'Generate' button triggers thumbnail creation",
+        "Loading state is shown while generation is in progress",
+        "Generated thumbnail is displayed once ready"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend functionality to generate thumbnail images from text prompts",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "ai se thumbnail create kar sake prompt deke"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend accepts text prompts and returns generated thumbnail images",
+        "Images are stored and retrievable",
+        "Error handling for failed generation attempts"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create an upload interface where users can upload their own thumbnail images for enhancement",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "agar apna thumbnail upload kare to use enhance karde de best bna de"
+        ]
+      },
+      "acceptanceCriteria": [
+        "File upload component accepts image files (PNG, JPG, JPEG)",
+        "Preview of uploaded image is shown before enhancement",
+        "Upload progress indicator is displayed",
+        "Clear error messages for invalid file types or sizes"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend functionality to enhance uploaded thumbnail images to improve their quality and visual appeal",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "agar apna thumbnail upload kare to use enhance karde de best bna de"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend receives uploaded images and processes them for enhancement",
+        "Enhanced version is stored and returned to user",
+        "Original upload is preserved for comparison"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create an input interface where users can paste a video link to generate a similar thumbnail",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "kisi bhi video ka link upload karne par uske jaisa thumbnail create karde"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Text input field accepts video URLs",
+        "Validation for supported video platforms",
+        "Button to trigger thumbnail generation from video link",
+        "Loading state while processing video link"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement backend functionality to analyze video links and generate similar thumbnails based on the video content",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "kisi bhi video ka link upload karne par uske jaisa thumbnail create karde"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend accepts video URLs and extracts or generates thumbnail imagery",
+        "Generated thumbnail captures the essence of the video",
+        "Thumbnail is stored and returned to frontend"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create an editor interface with customization options where users can modify generated thumbnails according to their preferences",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "use apne according change karne ka option bhi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can adjust colors, contrast, brightness, or other visual properties",
+        "Text overlay options are available if applicable",
+        "Preview updates in real-time as changes are made",
+        "Save or download the customized thumbnail"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement backend support for applying user customizations to thumbnails and returning the modified versions",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "use apne according change karne ka option bhi ho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend processes customization parameters sent from frontend",
+        "Modified thumbnail is generated and stored",
+        "Updated thumbnail is returned to user"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Design a modern, creative visual theme with bold, vibrant colors and clean typography that emphasizes creativity and visual media, consistently applied across all pages and components",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A cohesive color palette is chosen and used throughout the app",
+        "Typography is clear and supports a creative, professional aesthetic",
+        "Layout and spacing are optimized for showcasing visual content"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use only static image generation and manipulation capabilities available to the platform",
+    "Do not integrate external AI APIs like OpenAI or third-party video services"
+  ],
+  "nonGoals": [
+    "Real-time video streaming or playback",
+    "Direct integration with YouTube, Vimeo, or other video platform APIs",
+    "User authentication beyond Internet Identity",
+    "Social media sharing features"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Hero section background image with abstract creative design elements in vibrant colors (hero-bg.dim_1920x1080.png)",
+      "Placeholder thumbnail image showing a grid layout for the gallery view (placeholder-thumbnail.dim_400x300.png)",
+      "Icon for text prompt generation feature, representing AI creativity (icon-prompt.dim_128x128.png)",
+      "Icon for upload feature, representing file upload action (icon-upload.dim_128x128.png)",
+      "Icon for video link feature, representing video to thumbnail conversion (icon-video-link.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}
